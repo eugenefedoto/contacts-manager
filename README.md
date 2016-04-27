@@ -7,4 +7,8 @@ Note-worthy tech used: ASP.NET MVC5, Entity Framework, SQL Server, BootStrap
 Problems:
 * Global - anyone can modify it. There is no per-user storage.
 * UI - needs to be updated.
+
+
+Todo:
 * Deployment - I need to figure out how to properly deploy it.
+* AngularJS - add support.
