@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
@@ -11,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ContactsManagerV3.Models;
 using ContactsManagerV3.Services;
+using Sakura.AspNet.Mvc.PagedList;
 
 namespace ContactsManagerV3
 {
@@ -41,7 +38,7 @@ namespace ContactsManagerV3
             // Add framework services.
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<ApplicationDbContext>(options =>
+                .AddDbContext<ManagerContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -49,10 +46,14 @@ namespace ContactsManagerV3
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
+            services.AddSingleton<IContactRepository, ContactRepository>();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            //services.AddTransient<ManagerContextSeedData>();
+            services.UseBootstrapPagerGenerator();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -96,7 +97,7 @@ namespace ContactsManagerV3
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Contacts}/{action=Index}/{id?}");
             });
         }
 

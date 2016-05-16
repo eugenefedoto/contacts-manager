@@ -1,0 +1,84 @@
+@model ContactsManagerV3.Models.Contact
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssociateProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AssociateProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDateProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthDateProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ColleagueProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ColleagueProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentsProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentsProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddressProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddressProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FamilyProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstNameProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstNameProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FriendProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FriendProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastNameProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastNameProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberProperty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PicturePathProperty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PicturePathProperty)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>
